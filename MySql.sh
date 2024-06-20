@@ -51,4 +51,4 @@ else
     echo -e "$G MySql root password was already settedup. $N "
 fi
 
-echo "This script was done by my own"
+echo -e "$Y This script was done by my own $N"
