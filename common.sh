@@ -13,7 +13,7 @@ SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
 
 N="\e[0m"
-R="\e[32m"
+R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 
