@@ -1,13 +1,15 @@
 #!/bin/bash
 
-#set -e
+set -e
 
 failure(){
     echo "Failed at $1: $2"
 }
+
 trap 'failure ${LINENO} "$BASH_COMMAND"' ERR
 
 USERID=$(id -u)
+
 TIMESTAMP=$(date +%F-%H-%M-%S)
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
@@ -20,19 +22,19 @@ Y="\e[33m"
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
-        echo -e "$R FAILED $N"
+        echo -e "$2...$R Failed $N"
         exit 1
     else
-        echo -e "$G SUCCESS $N"
+        echo -e "$2...$G Success $N"
     fi
 }
 
 check_root(){
     if [ $USERID -ne 0 ]
     then
-        echo -e "$R Please run this script with root access $N"
+        echo -e "$R Hello you are not a super user. This script has to be run with root access. $N "
         exit 1
     else
-        echo -e "$G Hey congrats your script started executing now $N"
+        echo -e "$G Hey you are a super user, So the script is executing. $N"
     fi
 }
