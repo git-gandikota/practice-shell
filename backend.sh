@@ -13,7 +13,7 @@ dnf module enable nodejs:20 -y &>>$LOGFILE
 
 dnf install nodejs -y &>>$LOGFILE
 
-useradd expense &>>$LOGFILE
+#useradd expense &>>$LOGFILE
 
 mkdir -p /app &>>$LOGFILE
 
