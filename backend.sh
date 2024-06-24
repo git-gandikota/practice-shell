@@ -13,13 +13,7 @@ dnf module enable nodejs:20 -y &>>$LOGFILE
 
 dnf install nodejs -y &>>$LOGFILE
 
-id expense
-if [ $? -ne 0 ]
-then
-    useradd expense &>>$LOGFILE
-else
-    echo -e "Expense user already created...$Y SKIPPING $N"
-fi
+useradd expense &>>$LOGFILE
 
 mkdir -p /app &>>$LOGFILE
 
